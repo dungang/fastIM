@@ -209,6 +209,12 @@ listen:
 ##   - ipv6
 ## outgoing_s2s_timeout: 10000
 
+##    ==============
+##    S2S router
+##    defaul value deny ,if you want router out server ,set allow
+
+s2s_router: deny
+
 ###   ==============
 ###   AUTHENTICATION
 

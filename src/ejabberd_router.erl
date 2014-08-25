@@ -328,7 +328,11 @@ do_route(OrigFrom, OrigTo, OrigPacket) ->
     {From, To, Packet} ->
       LDstDomain = To#jid.lserver,
       case mnesia:dirty_read(route, LDstDomain) of
-        [] -> ejabberd_s2s:route(From, To, Packet);
+        [] ->
+          case ejabberd_config:get_option(s2s_router) of
+            allow -> ejabberd_s2s:route(From, To, Packet);
+            deny -> ok
+          end;
         [R] ->
           Pid = R#route.pid,
           if node(Pid) == node() ->
