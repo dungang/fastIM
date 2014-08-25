@@ -1,0 +1,78 @@
+<!-- 创建订阅节点 ,服务自动分配节点id -->
+<iq to='pubsub.localhost' from='10000@localhost/web' type='set' id='create1'>
+	<pubsub xmlns='http://jabber.org/protocol/pubsub'>
+		<create />
+	</pubsub>
+</iq>
+<!-- 创建订阅节点 ,主动分配节点id -->
+<iq to='pubsub.localhost' from='10000@localhost/web' type='set' id='create1'>
+	<pubsub xmlns='http://jabber.org/protocol/pubsub'>
+		<create node='falv_news' />
+	</pubsub>
+</iq>
+
+<!-- 配置订阅节点 -->
+<iq to='pubsub.localhost' from='10000@localhost/web' type='get'
+	id='configure1'>
+	<pubsub xmlns='http://jabber.org/protocol/pubsub#owner'>
+		<configure node='falv_news' />
+	</pubsub>
+</iq>
+
+<!-- 实体查询 Pubsub 服务支持的特性 -->
+<iq type='get'
+    from='10000@localhost/web'
+    to='pubsub.localhost'
+    id='feature1'>
+   <query xmlns='http://jabber.org/protocol/disco#info'/>
+</iq>
+
+<!-- 查询发布订阅节点的子节点的信息 ，如果是集合节点则返回子节点，否则 返回发布的条目-->
+<iq type='get'
+    from='10000@localhost/web'
+    to='pubsub.localhost'
+    id='nodes2'>
+  <query xmlns='http://jabber.org/protocol/disco#items'
+         node='1266069725'/>
+</iq>
+
+<!-- 查询服务订阅节点的子节点的信息info ,该节点的功能特性-->
+<iq type='get'
+    from='10000@localhost/web'
+    to='pubsub.localhost'
+    id='nodes2'>
+  <query xmlns='http://jabber.org/protocol/disco#info'
+         node='1266069725'/>
+</iq>
+
+<!-- 实体 请求 查询 自己所订阅的 订阅节点 -->
+<iq type='get'
+    from='10000@localhost/web'
+    to='pubsub.localhost'
+    id='subscriptions1'>
+  <pubsub xmlns='http://jabber.org/protocol/pubsub'>
+    <subscriptions/>
+  </pubsub>
+</iq>
+
+<!-- 查找实体从属关系，描述节点在各个订阅节点中的角色 -->
+<iq type='get'
+    from='10000@localhost/web'
+    to='pubsub.localhost'
+    id='affil1'>
+  <pubsub xmlns='http://jabber.org/protocol/pubsub'>
+    <affiliations/>
+  </pubsub>
+</iq>
+
+<!-- 订阅节点 -->
+<iq type='set'
+    from='10000@localhost/web'
+    to='pubsub.localhost'
+    id='sub1'>
+  <pubsub xmlns='http://jabber.org/protocol/pubsub'>
+    <subscribe
+        node='princely_musings'
+        jid='10000@localhost'/>
+  </pubsub>
+</iq>

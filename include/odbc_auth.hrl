@@ -1,0 +1,8 @@
+-define(EJAB_TABLE_PREFIX,ejabberd_config:get_option(odbc_table_prefix)).
+-define(AUTH_TABLE, ejabberd_config:get_option(odbc_auth_table)).
+-define(AUTH_USER_PASSWORD, ejabberd_config:get_option(odbc_user_field_password)).
+-define(AUTH_USER_SALT, ejabberd_config:get_option(odbc_user_field_salt)).
+-define(AUTH_USER_USER_ID, ejabberd_config:get_option(odbc_user_field_userid)).
+-define(AUTH_USER_EMAIL, ejabberd_config:get_option(odbc_user_field_email)).
+-define(AUTH_USER_MOBILE, ejabberd_config:get_option(odbc_user_field_mobile)).
+-define(AUTH_USER_NICK, ejabberd_config:get_option(odbc_user_field_nick)).
